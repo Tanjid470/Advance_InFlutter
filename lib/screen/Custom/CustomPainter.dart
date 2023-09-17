@@ -1,6 +1,8 @@
+import 'package:advance_in_flutter/constants/app_bar.dart';
+import 'package:advance_in_flutter/constants/app_textStyle.dart';
 import 'package:advance_in_flutter/screen/Custom/Draw/Circle.dart';
 import 'package:advance_in_flutter/screen/Custom/Draw/PeiChart.dart';
-import 'package:advance_in_flutter/screen/component.dart';
+
 import 'package:flutter/material.dart';
 
 class Custompainter extends StatefulWidget {

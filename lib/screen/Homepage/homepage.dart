@@ -1,8 +1,9 @@
+import 'package:advance_in_flutter/constants/app_bar.dart';
 import 'package:advance_in_flutter/screen/Custom/CustomPainter.dart';
 import 'package:advance_in_flutter/screen/Firebase/Login.dart';
-import 'package:advance_in_flutter/screen/component.dart';
+import 'package:advance_in_flutter/screen/Maps/map.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,26 +13,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   Map<String, Color> cardColor = {
-    "CustomPainter": Color.fromARGB(255, 104, 243, 224),
-    "Firebase": Color.fromARGB(255, 241, 193, 59),
+    "CustomPainter": const Color.fromARGB(255, 104, 243, 224),
+    "Firebase":const Color.fromARGB(255, 241, 193, 59),
+    "GoogleMap":Color.fromARGB(255, 105, 150, 233),
+   
   };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarTitle("List"),
+      appBar: appBarTitle("Advance List"),
       body: SingleChildScrollView(
           child: Container(
-            color:  Color.fromARGB(255, 215, 221, 218),
-            child: Column(
-                  children: [
+        color:const Color.fromARGB(255, 215, 221, 218),
+        child: Column(
+          children: [
             card("CustomPainter", const Custompainter()),
             card("Firebase", const Firebase()),
-                  ],
-                ),
-          )),
+            card("GoogleMap",const GoogleMapFree()),
+        
+          ],
+        ),
+      )),
     );
   }
 
@@ -47,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         child: ListTile(
           title: Text(
             s,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           trailing: const Icon(Icons.arrow_forward_ios),
         ),
