@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "414915755993",
-    "project_id": "fir-test-eb5fd",
-    "storage_bucket": "fir-test-eb5fd.appspot.com"
+    "project_number": "228292334117",
+    "project_id": "fir-connection-f590a",
+    "storage_bucket": "fir-connection-f590a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:414915755993:android:b059fdaef85df57d7de3c8",
+        "mobilesdk_app_id": "1:228292334117:android:c705e0c43e6c0f23ece5cc",
         "android_client_info": {
           "package_name": "com.example.advance_in_flutter"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCP2K-4nPRKkJBAotNyGP6eVAMUrKC-lR0"
+          "current_key": "AIzaSyCJuVEubkjPuNrQIVieqD-ZoDI2qRnh_8s"
         }
       ],
       "services": {
