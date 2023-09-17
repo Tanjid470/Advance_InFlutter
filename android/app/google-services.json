@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "414915755993",
+    "project_id": "fir-test-eb5fd",
+    "storage_bucket": "fir-test-eb5fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414915755993:android:b059fdaef85df57d7de3c8",
+        "android_client_info": {
+          "package_name": "com.example.advance_in_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP2K-4nPRKkJBAotNyGP6eVAMUrKC-lR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
