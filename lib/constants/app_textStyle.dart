@@ -33,8 +33,8 @@ TextStyle textButton2(){
 
 TextStyle animatedTitle(){
   return const TextStyle(
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: Color.fromARGB(255, 221, 24, 24)
+    color: Colors.teal
   ); 
 }
