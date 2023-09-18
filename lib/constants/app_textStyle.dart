@@ -21,4 +21,20 @@ TextStyle textButton(){
     fontWeight: FontWeight.bold,
     color: Colors.black
   );
+  
+}
+TextStyle textButton2(){
+  return const TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.bold,
+    color: Color.fromARGB(255, 25, 26, 26)
+  ); 
+}
+
+TextStyle animatedTitle(){
+  return const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Color.fromARGB(255, 221, 24, 24)
+  ); 
 }
