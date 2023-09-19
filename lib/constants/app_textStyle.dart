@@ -25,9 +25,16 @@ TextStyle textButton(){
 }
 TextStyle textButton2(){
   return const TextStyle(
-    fontSize: 17,
+    fontSize: 17.5,
     fontWeight: FontWeight.bold,
-    color: Color.fromARGB(255, 25, 26, 26)
+    color: Color.fromARGB(255, 223, 226, 226)
+  ); 
+}
+TextStyle textTitle(){
+  return const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.indigo
   ); 
 }
 

@@ -1,6 +1,7 @@
 import 'package:advance_in_flutter/constants/app_bar.dart';
 import 'package:advance_in_flutter/constants/app_colors.dart';
 import 'package:advance_in_flutter/constants/app_textStyle.dart';
+import 'package:advance_in_flutter/screen/Maps/flutterMap.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -56,7 +57,19 @@ class GoogleMapFreeState extends State<GoogleMapFree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarTitle("Google Map"),
+        appBar: appBarTitle("Device Location"),
+        floatingActionButton: FloatingActionButton.extended(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const FlutterMapView();
+                },
+              ));
+            },
+            label:  Text(
+                  "next  >",
+                  style: textTitle(),
+                )),
         body: Container(
           color: AppColors.bgcolor,
           width: MediaQuery.of(context).size.width,
@@ -138,7 +151,7 @@ class GoogleMapFreeState extends State<GoogleMapFree> {
                           end: Alignment.bottomCenter,
                           colors: [
                             Color.fromARGB(255, 93, 115, 245),
-                             Color.fromARGB(255, 11, 136, 11),
+                            Color.fromARGB(255, 11, 136, 11),
                             Color.fromARGB(255, 62, 202, 62),
                           ]),
                       borderRadius: BorderRadius.all(Radius.circular(20))),

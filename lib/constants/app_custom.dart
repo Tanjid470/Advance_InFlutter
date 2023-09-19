@@ -16,22 +16,39 @@ import 'package:permission_handler/permission_handler.dart';
                 );
 
   TextButton customButton(
-      BuildContext context, String label, Permission contacts) {
+      BuildContext context, String label, Permission contacts, Icon icon) {
     return TextButton(
         onPressed: () {
           checkPermision(contacts, context);
         },
         child: Container(
-            height: 45,
-            width: 130,
-            decoration: const BoxDecoration(
-             gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color.fromARGB(255, 10, 189, 78), Color.fromARGB(255, 9, 201, 15)],
-              ),
-                borderRadius: BorderRadius.all(Radius.circular(15))),
-            child: Center(child: Text(label, style: textButton2()))));
+           height: 42,
+                  width: 130,
+                  decoration: const BoxDecoration(
+                   gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.indigoAccent,Colors.indigo,Colors.indigo],
+                    ),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      boxShadow:[
+                  BoxShadow(
+                    blurRadius: 5.0,
+                    color: Color.fromARGB(255, 28, 28, 29),
+                    blurStyle: BlurStyle.inner,
+                    spreadRadius: 1.5
+                  )
+                    
+                      ],
+                      ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              icon,
+              Text(label, style: textButton2()),
+            ],
+          ),
+        ));
   }
 
   Future<void> checkPermision(
