@@ -44,7 +44,7 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
               markers: _markers,
               initialCameraPosition: const CameraPosition(
                   target: _center,
-                  zoom: 9.0,
+                  zoom: 10.0,
                   bearing: 1.0,
                   tilt: BitmapDescriptor.hueRed),
             ),
