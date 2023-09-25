@@ -37,11 +37,32 @@ TextStyle textTitle(){
     color: Colors.indigo
   ); 
 }
+TextStyle floatButtonText(){
+  return const TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.bold,
+    color: Color.fromARGB(255, 32, 32, 32)
+  ); 
+}
 
 TextStyle animatedTitle(){
   return const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
     color: Colors.teal
+  ); 
+}
+TextStyle optimizeText(){
+  return const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Color.fromARGB(255, 34, 35, 37)
+  ); 
+}
+TextStyle googleMapButton(){
+  return const TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: Color.fromARGB(255, 34, 35, 37)
   ); 
 }

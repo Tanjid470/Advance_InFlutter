@@ -1,7 +1,8 @@
 import 'package:advance_in_flutter/constants/app_bar.dart';
 import 'package:advance_in_flutter/constants/app_colors.dart';
 import 'package:advance_in_flutter/constants/app_textStyle.dart';
-import 'package:advance_in_flutter/screen/Maps/flutterMap.dart';
+import 'package:advance_in_flutter/screen/Maps/MapType/custom/floatButton.dart';
+import 'package:advance_in_flutter/screen/Maps/MapType/FlutterMap/flutterMap.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -41,9 +42,9 @@ class GoogleMapFreeState extends State<GoogleMapFree> {
   }
 
   getAddress() async {
-    try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(
+    try { List<Placemark> placemarks = await placemarkFromCoordinates(
           currentPosition!.latitude, currentPosition!.longitude);
+     
       Placemark place = placemarks[0];
       print(place);
       setState(() {
@@ -58,18 +59,8 @@ class GoogleMapFreeState extends State<GoogleMapFree> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appBarTitle("Device Location"),
-        floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return const FlutterMapView();
-                },
-              ));
-            },
-            label:  Text(
-                  "next  >",
-                  style: textTitle(),
-                )),
+        floatingActionButton:
+            floatingbutton(context, "Flutter Map", const FlutterMapView()),
         body: Container(
           color: AppColors.bgcolor,
           width: MediaQuery.of(context).size.width,
@@ -133,7 +124,7 @@ class GoogleMapFreeState extends State<GoogleMapFree> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               GestureDetector(
@@ -142,30 +133,50 @@ class GoogleMapFreeState extends State<GoogleMapFree> {
                   await getAddress();
                 },
                 child: Container(
-                  height: 50,
-                  padding: EdgeInsets.all(5),
-                  width: MediaQuery.of(context).size.width / 2.5,
+                  height: 58,
+                  padding:const EdgeInsets.all(5),
+                  width: MediaQuery.of(context).size.width / 3,
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Color.fromARGB(255, 93, 115, 245),
-                            Color.fromARGB(255, 11, 136, 11),
-                            Color.fromARGB(255, 62, 202, 62),
+                            Color.fromARGB(255, 182, 187, 221),
+                            Color.fromARGB(255, 180, 162, 245),
+                            Color.fromARGB(255, 199, 183, 224),
+                             Color.fromARGB(255, 187, 196, 247),
+                            Color.fromARGB(255, 190, 177, 236),
+                            Color.fromARGB(255, 213, 203, 230),
                           ]),
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 2,
+                              color: Colors.indigo,
+                              spreadRadius: 1.5
+                            )
+                          ],
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Center(
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                   // crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Icon(
-                        Icons.search,
+                        Icons.location_searching_rounded,
                         size: 30,
                       ),
-                      Text(
-                        'Location',
-                        style: textStyleCenter(),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            'Location',
+                            style: floatButtonText(),
+                          ),
+                          Text(
+                            'Search',
+                            style: floatButtonText(),
+                          ),
+                        ],
                       ),
                     ],
                   )),
