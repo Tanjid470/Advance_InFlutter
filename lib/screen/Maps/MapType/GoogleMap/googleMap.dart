@@ -19,9 +19,13 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
 
   static const LatLng _center = LatLng(23.804100, 90.415200);
   MapType _currentMapType = MapType.normal;
-  final bool _isPressed = false;
-  final bool isMarker = false;
+  bool _isPressed = false;
+  bool isMarker = false;
+  bool isCircle = false;
+  bool isPolygones = false;
   final Set<Marker> _markers = {};
+  final Set<Polygon> _polygons = {};
+  final Set<Circle> _circles = Set<Circle>();
   var latitude = TextEditingController();
   var longitude = TextEditingController();
   var currentPlace;
@@ -42,6 +46,8 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
               },
               mapType: _currentMapType,
               markers: _markers,
+              circles: _circles,
+              polygons: _polygons,
               initialCameraPosition: const CameraPosition(
                   target: _center,
                   zoom: 9.0,
@@ -58,7 +64,9 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
                   children: [
                     mapStyleButtom(
                         "Salelite", _onMapTypeButtonPressed, _isPressed),
-                    mapStyleButtom("+ Marker", _showBottomSheet, isMarker)
+                    mapStyleButtom("+ Marker", _showBottomSheet, isMarker),
+                    mapStyleButtom("Circle", _addCircles, isCircle),
+                    mapStyleButtom("Polygone", _addPolygones, isPolygones)
                   ],
                 )
               ],
@@ -74,6 +82,21 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
       _currentMapType = _currentMapType == MapType.normal
           ? MapType.satellite
           : MapType.normal;
+      _isPressed = !_isPressed;
+    });
+  }
+
+  void _addCircles() {
+    setState(() {
+      _circles.add(Circle(
+        circleId: const CircleId('circle_id'),
+        center: const LatLng(23.7339, 90.3929), // Circle center
+        radius: 50000, // Radius in meters
+        fillColor: const Color.fromARGB(255, 238, 101, 101).withOpacity(0.2),
+        strokeWidth: 2,
+        strokeColor: const Color.fromARGB(255, 236, 7, 7),
+      ));
+      isCircle = !isCircle;
     });
   }
 
@@ -91,6 +114,7 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
           ),
         ),
       );
+      isMarker = !isMarker;
     });
   }
 
@@ -145,5 +169,24 @@ class _GoogleMapDemoState extends State<GoogleMapDemo> {
     } catch (e) {
       e.printError();
     }
+  }
+
+  void _addPolygones() {
+    setState(() {
+      _polygons.add(Polygon(
+        polygonId: const PolygonId(""),
+        points: const [
+          LatLng(24.0656,91.1111), // Add your polygon's vertices here
+          LatLng(24.6666, 91.2222),  
+                 LatLng(25.0666, 90.2222), 
+             LatLng(24.6666, 89.2222),
+             LatLng(23.6666, 89.2222),
+        ],
+        strokeWidth: 2,
+        strokeColor:const Color.fromARGB(255, 35, 22, 226),
+        fillColor: const Color.fromARGB(255, 213, 88, 238).withOpacity(0.2),
+      ));
+      isPolygones = !isPolygones;
+    });
   }
 }
